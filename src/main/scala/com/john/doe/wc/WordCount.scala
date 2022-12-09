@@ -1,6 +1,5 @@
-package com.john.doe
+package com.john.doe.wc
 
-import org.apache.spark
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.SparkSession
 
@@ -31,7 +30,7 @@ object WordCount {
     // 打印词频最高的10个词汇
     wordCounts.map(
       { case (k, v) => (v, k) }
-    ).sortByKey(false)
+    ).sortByKey(ascending = false)
       .take(10)
       .foreach(println(_))
   }
